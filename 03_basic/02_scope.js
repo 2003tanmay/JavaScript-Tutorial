@@ -44,7 +44,7 @@ if (true) {
 // ++++++++++++++++++ interesting ++++++++++++++++++
 
 
-console.log(addone(5))
+console.log(addone(5)) //it not give error
 
 function addone(num){
     return num + 1
@@ -52,7 +52,7 @@ function addone(num){
 
 
 
-addTwo(5)
+addTwo(5) // it give error b/c addTwo is variable and at this point of line addTwo is not declared
 const addTwo = function(num){
     return num + 2
 }

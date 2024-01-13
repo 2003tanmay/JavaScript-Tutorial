@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>DOM learning</title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <div >
+        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+
+        <ul>
+            <li class="list-item">one</li>
+            <li class="list-item">two</li>
+            <li class="list-item">three</li>
+            <li class="list-item">four</li>
+        </ul>
+    </div>
+</body>
+</html>
+
+<!--
+    * for selecting element => document.getElementById('title')
+    * we can access diff attributes of it => document.getElementById('title').id => it give id of element
+    * for class attribute => document.getElementById('title').className // in dom it is "class" but it hold value by "className"
+    * for get all attribute => document.getElementById('title').getAttribute
+    * getAttribute is a func so we have to specify which att. we want => document.getElementById('title').getAttribute('class')
+    * for setting attribute => document.getElementById('title').setAttribute('class', 'test') => we are setting value of class as test
+    * but setAttribute overright the existing a=value of an attribute so we can set like => document.getElementById('title').setAttribute('class', 'test heading')
+    * we can store this in a varible => const title = document.getElementById('title')
+    * we can add style also => title.style.backgroundColor = 'green'
+    * we can get content also => title.textContent / title.innerHTML / title.innerText
+    * diff b/w them -> innerText => it shows only visible text 
+    * textContent => it discarded style element and also show hidden text
+    * innerHTML => it show whole HTML
+    * get element by className = document.getElementByClassName('heading')
+    * query selector => document.querySelector('h1') => it give first h1 element
+    * query selection by id and class => document.querySelector('#title') / document.querySelector('.heading')
+    * we can select tag with attribute => document.querySelector('input[type="password"]') / document.querySelector('p:first-child')
+    * we can use nested query selector => const myul = document.queryselector('ul') 
+                                          const myli = myul.querySelector('li').stye.backgroundColor = "green"
+    * query selction of all element =>                                       
+    * 
+-->
+

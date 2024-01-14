@@ -50,7 +50,11 @@
     * we can select tag with attribute => document.querySelector('input[type="password"]') / document.querySelector('p:first-child')
     * we can use nested query selector => const myul = document.queryselector('ul') 
                                           const myli = myul.querySelector('li').stye.backgroundColor = "green"
-    * query selction of all element =>                                       
+    * query selction of all element => const tempList = document.querySelectorAll('li') => it give node list, it is not array
+    * we can not apply direct style to this we have to specify which one we wnat to style = tempList[0].style.color = 'green'
+    * we can apply forEach in it => tempList.forEach(function (l) {l.style.backgroundColor = 'green'})
+    * we can access perticular elememt by class name = const tempCollection = document.getElementByClassName('list-item') = it give HTMLCollection                                 
+    * for applying forEach we can convert it into array = Array.from(tempCollection).forEach(function (l) {l.style.backgroundColor = 'red'})
     * 
 -->
 

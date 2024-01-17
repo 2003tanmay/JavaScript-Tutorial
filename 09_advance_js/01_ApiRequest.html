@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: white;">
+0	UNSENT	Client has been created. open() not called yet.
+<br>
+1	OPENED	open() has been called.
+<br>
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+<br>
+3	LOADING	Downloading; responseText holds partial data.
+<br>
+4	DONE	The operation is complete.
+</body>
+<script>
+    //it all is old type api
+
+    const requestUrl = 'https://api.github.com/users/2003tanmay'
+    const xhr = new XMLHttpRequest(); //it is used to send and received request, it is a class so we have to make object of this
+    xhr.open('GET', requestUrl) //give type of request and url 
+    xhr.onreadystatechange = function(){ //what to to while changing state
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data);
+            console.log(data.followers);
+        }
+    }
+    xhr.send(); //it is used to send and call open method
+</script>
+</html>

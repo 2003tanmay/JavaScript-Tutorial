@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){ //inckick = it is out dated and it not give functionality of propogation
+    //     alert("owl clicked")
+    // }
+
+     // attachEvent() // very old and used in internet explorer
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+    
+    /*****************event propogation************
+    * 1. event bubbling by default (false in 3rd parameter in addEventListener)
+    * 2. event capturing
+    */
+    
+    // document.getElementById('images').addEventListener('click', function(e){ //
+    //     console.log("clicked inside the ul");
+    // }, false)
+    // when we click on image console log happend
+        
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("owl clicked");
+    // }, false)
+
+    /*************************Event Bubbling*******************
+    * when we click on owl, first "owl clicked" print then "clicked inside the ul" print b/c here event bubbling happend.
+    * in event bubbling bubble goes bottom to top, since owl in child of image and we click on owl so owl print then image print b/c click event is also situated in image
+    * when we click on image event bubbling not happen because image is in top of owl
+    * event bubbling happen when we pass false in 3rd parameter in addEventListener.
+    */
+
+    /*************************Event Capturing*******************
+    * when we click on owl, first "clicked inside the ul" print then "owl clicked" print b/c here event capturing happend.
+    * in event capturing bubble goes top to bottom, since owl in child of image and we click on owl so image print then owl b/c click event is also situated in image
+    * when we click on image event capture happen because image is in top of owl
+    * event capturing happen when we pass true in 3rd parameter in addEventListener.
+    */
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()  //it is used to stop propogation
+    //     console.log("google clicked");
+    // }, false)
+   
+    
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
+    //removeIt.parentNode.removeChild(removeIt)
+    
+</script>
+</html>

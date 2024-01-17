@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    /********************** Async ********************/
+    /*
+    * default JS is synchronous language and work on a single thread.
+    * Blocking code(sync) = block the program
+    * Non blocking code(async) = does not block execution
+    */
+    const sayHitesh = function(){
+        console.log("Hitesh");
+    }
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "best JS series";
+    }
+
+    const changeMe = setTimeout(changeText, 2000) // it has 2 parameter - 1. handler, 2. timeout and it is used to exexute function after given timout
+
+    document.querySelector('#stop').addEventListener('click', function(){
+        clearTimeout(changeMe) // it is used to clear the timeout and it take reference of timout which one we wanna stop
+        console.log("STOPPED")
+    })
+
+</script>
+</html>
